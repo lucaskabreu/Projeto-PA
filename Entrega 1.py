@@ -4,7 +4,7 @@ clienteNome = input()
 
 ---- Criação da conta
 clienteConta = "0001"
-print(f"O número da conta do cliente é {clienteConta}")
+print(f"O número da conta de {clienteNome} é {clienteConta}")
 
 ---- Variável que contém o saldo do cliente
 clenteSaldo = 0
@@ -20,7 +20,7 @@ saque = float(input())
 if saque <= clienteSaldo:
   clienteSaldo = cliente - saque
 else:
-  print("Cliente não possui saldo suficiente para o saldo")
+  print("Cliente não possui saldo suficiente para o saque")
 
 ---- Exibição de saldo do cliente
 print(f"O atual saldo do cliente é de {saldoCliente} R$")
