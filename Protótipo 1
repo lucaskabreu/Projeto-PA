@@ -1,0 +1,52 @@
+#### Cadastro de um cliente
+respostaCadastro = 's'
+respostaOperação = 's'
+clienteConta = 0
+
+while True cadastro:
+  print("Deseja cadastrar um novo cliente?")
+  respostaCadastro = input()
+  if (respostaCadastro == 'sim') or (respostaCadastro == 's'):
+    print("Nome do cliente: ")
+    clienteNome = input()
+    
+    #### Criação da conta
+    clienteConta = clienteConta + 1
+    print(f"O número da conta de {clienteNome} é {clienteConta:03d}\n")
+
+    #### Variável que contém o saldo do cliente
+    clienteSaldo = 0
+
+    print("Deseja realizar alguma operação para essa conta?")
+    respostaOperação = input()
+      while True operação:
+
+        if (respostaOperação == 'sim) or (respostaOperação == 's'):
+          print("Selecione a operação:\n ")
+          print("1) Depósito\n2) Saque)
+          selecionaOperação = int(input())
+
+            if selecionaOperação == 1:
+              #### Realização de depósito
+              print("Valor do depósito: ")
+              deposito = float(input())
+              clienteSaldo = clienteSaldo + deposito
+  
+            elif selecionaOperação == 2:
+               #### Realização de salque
+                print("Valor do saque: ")
+                saque = float(input())
+                if saque <= clienteSaldo:
+                  clienteSaldo = clienteSaldo - saque
+                else:
+                  print("Cliente não possui saldo suficiente para o saque")
+  
+            else: 
+              print("Operação inválida!")
+
+      print("Deseja realizar uma nova operação para essa conta?")
+      respostaOperação = input()
+        
+    else:
+      print("Sessão finalizada")
+    
