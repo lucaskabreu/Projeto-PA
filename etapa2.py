@@ -19,7 +19,7 @@ while True:
         # Exigência: cadastrar vários clientes
         nome = input("Nome do cliente: ")
         clientes.append(nome)
-        print("Cliente cadastrado com sucesso.")
+        print("Cliente cadastrado com sucesso!")
         
     elif opcao == '2':
         # Exigência: cadastrar várias contas (vinculando a um cliente que já existe)
