@@ -73,8 +73,11 @@ while True:
     elif opcao == '6':
         # Exigência: depositar
         numero_busca = int(input("Número da conta para depósito: "))
+        encontrou = False
+        
         for conta in contas:
             if conta['numero'] == numero_busca:
+                encontrou = True
                 deposito = float(input("Valor do depósito: "))
                 if deposito > 0:
                     conta['saldo'] = conta['saldo'] + deposito
@@ -82,12 +85,18 @@ while True:
                 else:
                     print("Valor inválido.")
                 break
+            
+        if not encontrou:
+            print("Conta não cadastrada.")
                 
     elif opcao == '7':
         # Exigência: sacar
         numero_busca = int(input("Número da conta para saque: "))
+        encontrou = False
+        
         for conta in contas:
             if conta['numero'] == numero_busca:
+                encontrou = True
                 saque = float(input("Valor do saque: "))
                 if saque > 0 and saque <= conta['saldo']:
                     conta['saldo'] = conta['saldo'] - saque
@@ -97,10 +106,10 @@ while True:
                 else:
                     print("Valor inválido.")
                 break
-                
+        
+        if not encontrou:
+            print("Conta não cadastrada.")  
+            
     elif opcao == '0':
         print("Sessão finalizada.")
         break
-        
-    else:
-        print("Opção inválida.")
