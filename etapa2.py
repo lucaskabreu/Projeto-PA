@@ -8,9 +8,8 @@ while True:
     print("2 - Cadastrar conta")
     print("3 - Listar contas")
     print("4 - Procurar uma conta pelo número")
-    print("5 - Consultar saldo")
-    print("6 - Depositar")
-    print("7 - Sacar")
+    print("5 - Depositar")
+    print("6 - Sacar")
     print("0 - Sair")
     
     opcao = int(input("Escolha a opção: "))
@@ -57,20 +56,6 @@ while True:
             print("Conta não encontrada.")
             
     elif opcao == 5:
-        # Exigência: consultar saldo
-        numero_busca = int(input("Número da conta: "))
-        encontrou = False
-        
-        for conta in contas:
-            if conta['numero'] == numero_busca:
-                print(f"Saldo da conta {conta['numero']}: {conta['saldo']} R$")
-                encontrou = True
-                break
-                
-        if not encontrou:
-            print("Conta não encontrada.")
-            
-    elif opcao == 6:
         # Exigência: depositar
         numero_busca = int(input("Número da conta para depósito: "))
         encontrou = False
@@ -89,7 +74,7 @@ while True:
         if not encontrou:
             print("Conta não cadastrada.")
                 
-    elif opcao == 7:
+    elif opcao == 6:
         # Exigência: sacar
         numero_busca = int(input("Número da conta para saque: "))
         encontrou = False
