@@ -13,15 +13,15 @@ while True:
     print("7 - Sacar")
     print("0 - Sair")
     
-    opcao = input("Escolha a opção: ")
+    opcao = int(input("Escolha a opção: "))
     
-    if opcao == '1':
+    if opcao == 1:
         # Exigência: cadastrar vários clientes
         nome = input("Nome do cliente: ")
         clientes.append(nome)
         print("Cliente cadastrado com sucesso!")
         
-    elif opcao == '2':
+    elif opcao == 2:
         # Exigência: cadastrar várias contas (vinculando a um cliente que já existe)
         nome_cliente = input("Nome do cliente para vincular a conta: ")
         
@@ -37,12 +37,12 @@ while True:
         else:
             print("Cliente não encontrado. Cadastre o cliente primeiro na opção 1.")
             
-    elif opcao == '3':
+    elif opcao == 3:
         # Exigência: listar contas
         for conta in contas:
             print(f"Conta: {conta['numero']} | Cliente: {conta['cliente']}")
             
-    elif opcao == '4':
+    elif opcao == 4:
         # Exigência: procurar uma conta pelo número
         numero_busca = int(input("Número da conta: "))
         encontrou = False
@@ -56,7 +56,7 @@ while True:
         if not encontrou:
             print("Conta não encontrada.")
             
-    elif opcao == '5':
+    elif opcao == 5:
         # Exigência: consultar saldo
         numero_busca = int(input("Número da conta: "))
         encontrou = False
@@ -70,7 +70,7 @@ while True:
         if not encontrou:
             print("Conta não encontrada.")
             
-    elif opcao == '6':
+    elif opcao == 6:
         # Exigência: depositar
         numero_busca = int(input("Número da conta para depósito: "))
         encontrou = False
@@ -89,7 +89,7 @@ while True:
         if not encontrou:
             print("Conta não cadastrada.")
                 
-    elif opcao == '7':
+    elif opcao == 7:
         # Exigência: sacar
         numero_busca = int(input("Número da conta para saque: "))
         encontrou = False
@@ -110,6 +110,6 @@ while True:
         if not encontrou:
             print("Conta não cadastrada.")  
             
-    elif opcao == '0':
+    elif opcao == 0:
         print("Sessão finalizada.")
         break
