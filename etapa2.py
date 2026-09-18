@@ -98,3 +98,6 @@ while True:
     elif opcao == 0:
         print("Sessão finalizada.")
         break
+
+    else:
+        print("Opção inválida.")
