@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Cliente</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cadastrar Cliente</h1>
+
+        <form method="POST">
+            <label for="nome">Nome do cliente:</label>
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite o nome completo"
+                required
+            >
+
+            <button type="submit">Cadastrar cliente</button>
+        </form>
+
+        <a class="voltar" href="{{ url_for('menu') }}">
+            Cancelar e voltar ao menu
+        </a>
+    </div>
+
+</body>
+</html> 
