@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titulo }}</title>
+</head>
+<body>
+    <h1>{{ titulo }}</h1>
+    <form action="/{{ acao }}" method="POST">
+        <p>
+            <label for="numero">Número da conta:</label><br>
+            <input type="number" id="numero" name="numero" required>
+        </p>
+        <p>
+            <label for="valor">Valor (R$):</label><br>
+            <input type="text" id="valor" name="valor" placeholder="0.00" required>
+        </p>
+        <button type="submit">Confirmar {{ titulo }}</button>
+        <a href="/">Voltar ao Menu</a>
+    </form>
+</body>
+</html>
 
