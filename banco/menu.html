@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Bancário - {{ banco_nome }}</title>
+</head>
+<body>
+    <h1>Menu Principal - Banco {{ banco_nome }}</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div style="background-color: #f0f0f0; padding: 10px; margin-bottom: 20px; border-left: 5px solid #007BFF;">
+                <h3>Notificações:</h3>
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <ul>
+        <li><a href="/cliente">1 - Cadastrar cliente</a></li>
+        <li><a href="/conta">2 - Cadastrar conta</a></li>
+        <li><a href="/contas">3 - Listar contas</a></li>
+        <li><a href="/buscar-conta">4 - Procurar uma conta pelo número</a></li>
+        <li><a href="/depositar">5 - Depositar</a></li>
+        <li><a href="/sacar">6 - Sacar</a></li>
+    </ul>
+</body>
+</html>
 
