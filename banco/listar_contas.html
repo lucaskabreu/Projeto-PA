@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contas Cadastradas</title>
+</head>
+<body>
+    <h1>Lista de Contas Cadastradas</h1>
+    
+    {% if contas %}
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Número da Conta</th>
+                    <th>Cliente</th>
+                    <th>CPF</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for conta in contas %}
+                <tr>
+                    <td>{{ conta.numero }}</td>
+                    <td>{{ conta.cliente.nome }}</td>
+                    <td>{{ conta.cliente.cpf }}</td>
+                    <td>R$ {{ conta.saldo:.2f }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhuma conta cadastrada no sistema.</p>
+    {% endif %}
+    
+    <br>
+    <a href="/">Voltar ao Menu</a>
+</body>
+</html>
 
