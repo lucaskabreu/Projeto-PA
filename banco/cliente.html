@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Cliente</title>
+</head>
+<body>
+    <h1>Cadastrar Novo Cliente</h1>
+    <form action="/cliente" method="POST">
+        <p>
+            <label for="nome">Nome do cliente:</label><br>
+            <input type="text" id="nome" name="nome" required>
+        </p>
+        <p>
+            <label for="cpf">CPF:</label><br>
+            <input type="text" id="cpf" name="cpf" required>
+        </p>
+        <p>
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" name="email" required>
+        </p>
+        <p>
+            <label for="idade">Idade:</label><br>
+            <input type="number" id="idade" name="idade" required>
+        </p>
+        <button type="submit">Cadastrar Cliente</button>
+        <a href="/">Voltar ao Menu</a>
+    </form>
+</body>
+</html>
 
