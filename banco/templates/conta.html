@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,7 +14,8 @@
     <div class="container">
         <h1>Cadastrar Conta</h1>
 
-        <form method="POST">
+        <form method="POST" action="{{ url_for('cadastrar_conta') }}">
+
             <label for="nome_cliente">Nome do cliente:</label>
             <input
                 type="text"

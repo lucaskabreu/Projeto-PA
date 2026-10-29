@@ -4,32 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Cliente</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <div class="container">
-        <h1>Cadastrar Cliente</h1>
-
+        <h2>Cadastrar Cliente</h2>
         <form method="POST">
-            <label for="nome">Nome do cliente:</label>
-            <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Digite o nome completo"
-                required
-            >
+            <label>Nome do cliente:</label>
+            <input type="text" name="nome" required autofocus>
 
-            <button type="submit">Cadastrar cliente</button>
+            <label>CPF do cliente:</label>
+            <input type="text" name="cpf" required>
+
+            <label>Email do cliente:</label>
+            <input type="email" name="email" required>
+
+            <label>Idade do cliente:</label>
+            <input type="number" name="idade" required>
+
+            <button type="submit">Salvar</button>
         </form>
-
-        <a class="voltar" href="{{ url_for('menu') }}">
-            Cancelar e voltar ao menu
-        </a>
+        <a href="/" class="voltar">Voltar ao Menu</a>
     </div>
 
 </body>
-</html> 
+</html>
+

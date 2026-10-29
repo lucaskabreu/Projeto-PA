@@ -4,50 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Principal</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <title>Sistema Bancário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <div class="menu">
         <h1>Menu Principal</h1>
 
-        {% with mensagens = get_flashed_messages() %}
-            {% if mensagens %}
-                <div id="mensagem">
-                    {% for mensagem in mensagens %}
-                        <p>{{ mensagem }}</p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="mensagens">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
                     {% endfor %}
                 </div>
             {% endif %}
         {% endwith %}
 
-        <a class="opcao" href="{{ url_for('cadastrar_cliente') }}">
-            1 - Cadastrar cliente
-        </a>
-
-        <a class="opcao" href="{{ url_for('cadastrar_conta') }}">
-            2 - Cadastrar conta
-        </a>
-
-        <a class="opcao" href="{{ url_for('listar_contas') }}">
-            3 - Listar contas
-        </a>
-
-        <a class="opcao" href="{{ url_for('buscar_conta') }}">
-            4 - Procurar uma conta pelo número
-        </a>
-
-        <a class="opcao" href="{{ url_for('depositar') }}">
-            5 - Depositar
-        </a>
-
-        <a class="opcao" href="{{ url_for('sacar') }}">
-            6 - Sacar
-        </a>
-
+        <a href="/cliente" class="opcao">1 - Cadastrar Cliente</a>
+        <a href="/conta" class="opcao">2 - Cadastrar Conta</a>
+        <a href="/contas" class="opcao">3 - Listar Contas</a>
+        <a href="/buscar-conta" class="opcao">4 - Procurar Conta pelo Número</a>
+        <a href="/operacao/depositar" class="opcao">5 - Depositar</a>
+        <a href="/operacao/sacar" class="opcao">6 - Sacar</a>
     </div>
 
 </body>
