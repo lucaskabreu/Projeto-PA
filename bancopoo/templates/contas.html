@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Contas</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contas Cadastradas</h1>
+
+        {% if contas %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Cliente</th>
+                        <th>Saldo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for conta in contas %}
+                        <tr>
+                            <td>{{ conta.numero }}</td>
+                            <td>{{ conta.cliente.nome }}</td>
+                            <td>R$ {{ "%.2f"|format(conta.saldo) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Nenhuma conta cadastrada.</p>
+        {% endif %}
+
+        <a class="voltar" href="{{ url_for('menu') }}">
+            Voltar ao menu
+        </a>
+    </div>
+
+</body>
+</html>

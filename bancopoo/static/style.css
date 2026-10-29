@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    color: #333;
+}
+
+.menu,
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+    text-align: center;
+    color: #174ea6;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+h2 {
+    color: #174ea6;
+}
+
+.opcao {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #174ea6;
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.opcao:hover {
+    background: #0d3475;
+}
+
+.sair {
+    background: #c62828;
+}
+
+.sair:hover {
+    background: #8e1717;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: 2px solid #174ea6;
+    border-color: #174ea6;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #174ea6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #0d3475;
+}
+
+.voltar {
+    display: block;
+    margin-top: 20px;
+    color: #174ea6;
+    text-align: center;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+#mensagem {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    overflow-wrap: anywhere;
+}
+
+#mensagem p {
+    margin: 5px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+}
+
+th {
+    background: #174ea6;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f1f5f9;
+}
+
+@media (max-width: 480px) {
+    .menu,
+    .container {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th,
+    td {
+        padding: 7px;
+    }
+}

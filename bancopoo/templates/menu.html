@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Bancário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="menu">
+        <h1>Menu Principal</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="mensagens">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <a href="/cliente" class="opcao">1 - Cadastrar Cliente</a>
+        <a href="/conta" class="opcao">2 - Cadastrar Conta</a>
+        <a href="/contas" class="opcao">3 - Listar Contas</a>
+        <a href="/buscar-conta" class="opcao">4 - Procurar Conta pelo Número</a>
+        <a href="/operacao/depositar" class="opcao">5 - Depositar</a>
+        <a href="/operacao/sacar" class="opcao">6 - Sacar</a>
+    </div>
+
+</body>
+</html>
