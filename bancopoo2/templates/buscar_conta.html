@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Conta</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Procurar Conta</h1>
+
+        <form method="POST">
+            <label for="numero">Número da conta:</label>
+            <input
+                type="number"
+                id="numero"
+                name="numero"
+                min="1"
+                placeholder="Digite o número da conta"
+                required
+            >
+
+            <button type="submit">Buscar conta</button>
+        </form>
+
+        <a class="voltar" href="{{ url_for('menu') }}">
+            Cancelar e voltar ao menu
+        </a>
+    </div>
+
+</body>
+</html>

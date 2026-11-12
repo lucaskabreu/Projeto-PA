@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>{{ titulo }}</h2>
+        <form method="POST" action="/operacao/{{ acao }}">
+            <label>Número da conta:</label>
+            <input type="number" name="numero" required autofocus>
+
+            <label>Valor (R$):</label>
+            <input type="text" name="valor" placeholder="0,00" required>
+
+            <button type="submit">Confirmar {{ titulo }}</button>
+        </form>
+        <a href="/" class="voltar">Voltar ao Menu</a>
+    </div>
+
+</body>
+</html>
+
