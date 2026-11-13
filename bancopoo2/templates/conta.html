@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Conta</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
@@ -25,6 +23,12 @@
                 required
             >
 
+            <label for="tipo">Tipo de conta:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="Corrente">Conta Corrente</option>
+                <option value="Poupança">Conta Poupança</option>
+            </select>
+
             <button type="submit">Criar conta</button>
         </form>
 
@@ -35,3 +39,4 @@
 
 </body>
 </html>
+

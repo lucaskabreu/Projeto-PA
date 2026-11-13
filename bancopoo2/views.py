@@ -47,11 +47,15 @@ class Conta:
             return "Valor inválido para transferência."
         elif valor > self.__saldo:
             return "Cliente não possui saldo suficiente para a transferência."
+        elif self.numero == conta_destino.numero:
+            return "Não é possível transferir para a mesma conta."
         else:
             self.__saldo -= valor
-            conta_destino.depositar(valor)
-            transação = f"Transferência de R$ {valor:.2f} para a conta {conta_destino.numero} realizada."
-            self.historico__transações.append(transação)
+            conta_destino._Conta__saldo += valor
+            transação_saída = f"Transferência de R$ {valor:.2f} para a conta {conta_destino.numero} realizada."
+            self.historico__transações.append(transação_saída)
+            transação_entrada = f"Recebimento de R$ {valor:.2f} da conta {self.numero}."
+            conta_destino.historico__transações.append(transação_entrada)
             return f"Transferência de R$ {valor:.2f} realizada com sucesso para a conta {conta_destino.numero}."
     
 class Agencia:
@@ -83,7 +87,8 @@ class Agencia:
         return sum(conta.get_saldo() for conta in self.contas)
 
 contador_conta = 1
-meuBanco = Banco("BB")
+meuBanco = Agencia("BB")
+cont += 1
 
 @app.route("/")
 def menu():
@@ -98,11 +103,12 @@ def cadastrar_cliente():
         cpf = request.form.get("cpf", "").strip()
         email = request.form.get("email", "").strip()
         idade_texto = request.form.get("idade", "").strip()
+        telefone = request.form.get("telefone", "").strip()
 
         try:
             idade = int(idade_texto)
             if nome and cpf and email:
-                novo_cliente = Cliente(nome, cpf, email, idade)
+                novo_cliente = Cliente(nome, cpf, email, idade, telefone)
                 meuBanco.adicionar_cliente(novo_cliente)
                 flash(f"Cliente '{nome}' cadastrado com sucesso!")
             else:
@@ -123,9 +129,10 @@ def cadastrar_conta():
     if request.method == "POST":
         nome_cliente = request.form.get("nome_cliente", "").strip()
         cliente = meuBanco.procurar_cliente(nome_cliente)
+        tipo = request.form.get("tipo", "").strip()
 
         if cliente:
-            nova_conta = Conta(contador_conta, cliente)
+            nova_conta = Conta(contador_conta, cliente, tipo)
             meuBanco.adicionar_conta(nova_conta)
             flash(f"Conta {contador_conta} criada para {nome_cliente}.")
             contador_conta += 1
@@ -169,8 +176,12 @@ def buscar_conta():
                     f"Conta {conta.numero} | "
                     f"Cliente: {conta.cliente.nome} | "
                     f"Saldo: R$ {conta.get_saldo():.2f}"
-                    f" | Histórico de transações: {conta.historico__transações}"
+                    f" | Tipo: {conta.tipo}"
                 )
+                if conta.historico__transações:
+                    flash("Histórico de transações:")
+                    for transacao in conta.historico__transações:
+                        flash(f"- {transacao}")    
             else:
                 flash("Conta não encontrada.")
         except ValueError:

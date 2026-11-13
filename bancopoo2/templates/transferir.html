@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transferir</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Transferência entre Contas</h1>
+
+        <form method="POST" action="{{ url_for('transferir') }}">
+
+            <label for="numero_origem">Número da conta de origem:</label>
+            <input
+                type="number"
+                id="numero_origem"
+                name="numero_origem"
+                min="1"
+                placeholder="Conta que vai enviar o valor"
+                required
+                autofocus
+            >
+
+            <label for="numero_destino">Número da conta de destino:</label>
+            <input
+                type="number"
+                id="numero_destino"
+                name="numero_destino"
+                min="1"
+                placeholder="Conta que vai receber o valor"
+                required
+            >
+
+            <label for="valor">Valor da transferência (R$):</label>
+            <input
+                type="number"
+                id="valor"
+                name="valor"
+                step="0.01"
+                min="0.01"
+                placeholder="Ex: 50.00"
+                required
+            >
+
+            <button type="submit">Confirmar Transferência</button>
+        </form>
+
+        <a class="voltar" href="{{ url_for('menu') }}">
+            Cancelar e voltar ao menu
+        </a>
+    </div>
+
+</body>
+</html>

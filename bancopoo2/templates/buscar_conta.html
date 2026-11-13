@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Conta</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <div class="container">
         <h1>Procurar Conta</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="mensagens">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
 
         <form method="POST">
             <label for="numero">Número da conta:</label>
@@ -27,8 +36,28 @@
             <button type="submit">Buscar conta</button>
         </form>
 
+        {% if conta %}
+            <div class="resultado">
+                <h2>Dados da Conta {{ conta.numero }}</h2>
+                <p><strong>Cliente:</strong> {{ conta.cliente.nome }}</p>
+                <p><strong>Tipo:</strong> {{ conta.tipo }}</p>
+                <p><strong>Saldo:</strong> R$ {{ "%.2f"|format(conta.get_saldo()) }}</p>
+
+                <h3>Histórico de Transações</h3>
+                {% if conta.historico__transações %}
+                    <ul>
+                        {% for item in conta.historico__transações %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Nenhuma transação realizada ainda.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
         <a class="voltar" href="{{ url_for('menu') }}">
-            Cancelar e voltar ao menu
+            Voltar ao menu
         </a>
     </div>
 
